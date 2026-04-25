@@ -1,0 +1,6 @@
+module raylib {
+  header "include/raylib.h"
+  header "include/raymath.h"
+  header "include/rlgl.h"
+  export *
+}
