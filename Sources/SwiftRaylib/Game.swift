@@ -27,15 +27,9 @@ struct SwiftRaylib {
 
             // Draw
             BeginDrawing()
-            ClearBackground(Color(r: 24, g: 24, b: 32, a: 255))
-            DrawRectangleV(
-                boxPos,
-                Vector2(x: boxSize, y: boxSize),
-                Color(r: 230, g: 90, b: 120, a: 255)
-            )
-            DrawText(
-                "Hello, raylib from Swift!", 20, 20, 20,
-                Color(r: 240, g: 240, b: 240, a: 255))
+            ClearBackground(.beige)
+            DrawRectangleV(boxPos, Vector2(x: boxSize, y: boxSize), .pink)
+            DrawText("Hello, raylib from Swift!", 20, 20, 20, .raywhite)
             DrawFPS(screenWidth - 90, 10)
             EndDrawing()
         }

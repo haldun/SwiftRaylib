@@ -13,12 +13,7 @@ let package = Package(
         .macOS(.v13)
     ],
     targets: [
-        .systemLibrary(
-            name: "raylib",
-            path: "raylib-6.0_macos",
-            pkgConfig: nil,
-            providers: []
-        ),
+        .systemLibrary(name: "raylib", path: "raylib-6.0_macos"),
         .executableTarget(
             name: "SwiftRaylib",
             dependencies: ["raylib"],
