@@ -7,15 +7,25 @@ A minimal Swift + [raylib](https://www.raylib.com/) starter for macOS.
 - macOS 13 or later
 - Swift 6.3+ (Xcode 16 or recent Swift toolchain)
 
-## Run
+## Start a new project from this template
+
+Use `clone.sh` to spawn a fresh, renamed copy of this project:
 
 ```sh
-swift run
+./clone.sh Asteroids              # creates ../Asteroids/
+./clone.sh Pong ~/Projects        # creates ~/Projects/Pong/
 ```
 
-A window should open with a bouncing box.
+The new folder is a standalone project with its own git history, ready to run:
+
+```sh
+cd ../Asteroids
+swift run                         # window opens with a bouncing box
+```
 
 raylib is statically linked into the final binary, so the built executable is self-contained.
+
+Your `SwiftRaylib` template stays untouched and reusable.
 
 ## License
 
