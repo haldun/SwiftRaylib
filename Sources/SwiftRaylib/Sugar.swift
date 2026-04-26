@@ -59,11 +59,7 @@ extension Color {
     static let raywhite = Color(245, 245, 245)
 }
 
-extension ConfigFlags {
-    init(rawValue: UInt32) {
-        self.init(UInt32(rawValue))
-    }
-
+extension ConfigFlags: @retroactive OptionSet {
     // Window flags
     static let vsyncHint = FLAG_VSYNC_HINT
     static let fullscreenMode = FLAG_FULLSCREEN_MODE
