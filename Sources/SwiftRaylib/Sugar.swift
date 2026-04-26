@@ -6,24 +6,27 @@ extension Color {
         self.init(r: r, g: g, b: b, a: a)
     }
 
-    /// Build a color from a 0xRRGGBB or 0xRRGGBBAA hex literal.
-    /// Examples: `Color(hex: 0xE65A78)`, `Color(hex: 0xE65A78FF)`
-    init(hex: UInt32) {
-        if hex <= 0xFFFFFF {
-            self.init(
-                r: UInt8((hex >> 16) & 0xFF),
-                g: UInt8((hex >> 8) & 0xFF),
-                b: UInt8(hex & 0xFF),
-                a: 255
-            )
-        } else {
-            self.init(
-                r: UInt8((hex >> 24) & 0xFF),
-                g: UInt8((hex >> 16) & 0xFF),
-                b: UInt8((hex >> 8) & 0xFF),
-                a: UInt8(hex & 0xFF)
-            )
-        }
+    /// Build a color from a 0xRRGGBB hex literal. Alpha is fully opaque.
+    /// Example: `Color(rgb: 0xE65A78)`
+    init(rgb: UInt32) {
+        precondition(rgb <= 0xFFFFFF, "rgb must be a 24-bit value (0x000000...0xFFFFFF)")
+        self.init(
+            r: UInt8((rgb >> 16) & 0xFF),
+            g: UInt8((rgb >> 8) & 0xFF),
+            b: UInt8(rgb & 0xFF),
+            a: 255
+        )
+    }
+
+    /// Build a color from a 0xRRGGBBAA hex literal.
+    /// Example: `Color(rgba: 0xE65A78FF)`
+    init(rgba: UInt32) {
+        self.init(
+            r: UInt8((rgba >> 24) & 0xFF),
+            g: UInt8((rgba >> 16) & 0xFF),
+            b: UInt8((rgba >> 8) & 0xFF),
+            a: UInt8(rgba & 0xFF)
+        )
     }
 }
 
